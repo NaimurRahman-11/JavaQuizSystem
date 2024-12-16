@@ -153,21 +153,27 @@ public class JavaQuizSystem {
             }
         }
 
-        System.out.println("\nSystem:> Quiz completed! Your score: " + score + "/" + questionCount);
 
         if (score >= 8) {
-            System.out.println("System:> Excellent! You have got " + score + " out of 10");
+            System.out.println("System:> Excellent! You have got " + score + " out of " + questionCount);
         } else if (score >= 5) {
-            System.out.println("System:> Good. You have got " + score + " out of 10");
+            System.out.println("System:> Good. You have got " + score + " out of " + questionCount);
         } else if (score >= 2) {
-            System.out.println("System:> Very poor! You have got " + score + " out of 10");
+            System.out.println("System:> Very poor! You have got " + score + " out of " + questionCount);
         } else {
-            System.out.println("System:> Very sorry you are failed. You have got " + score + " out of 10");
+            System.out.println("System:> Very sorry you are failed. You have got " + score + " out of " + questionCount);
         }
 
         System.out.println("\nWould you like to start again? Press 's' for start or 'q' for quit.");
         System.out.print("Student:> ");
         String choice = scanner.nextLine();
+
+        while (!choice.equalsIgnoreCase("s") && !choice.equalsIgnoreCase("q")) {
+            System.out.println("System:> Invalid input. Please press 's' to start or 'q' to quit.");
+            System.out.print("Student:> ");
+            choice = scanner.nextLine();
+        }
+
         if (choice.equalsIgnoreCase("s")) {
             conductQuiz(scanner);
         } else {
